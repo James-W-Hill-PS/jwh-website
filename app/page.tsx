@@ -1,6 +1,6 @@
 'use client'
 
-import { ThemeUIProvider, Box, Container, Heading, Text, Button, Card, Grid, Badge, Flex } from 'theme-ui'
+import { ThemeUIProvider, Box, Container, Heading, Text, Button, Card, Grid, Badge, Flex, Link as ThemeLink } from 'theme-ui'
 import theme from '@hackclub/theme'
 import Icon from '@hackclub/icons'
 import Link from 'next/link'
@@ -8,7 +8,7 @@ import Navigation from './components/Navigation'
 
 export default function Home() {
   return (
-    <ThemeUIProvider theme={theme}>
+    <ThemeUIProvider theme={theme as any}>
       <Box sx={{ bg: 'background', minHeight: '100vh' }}>
         <Navigation />
 
@@ -124,9 +124,33 @@ export default function Home() {
             Join us at J.W.H. Coding Club and build amazing things
           </Text>
           <br />
-          <Button as="a" href="https://hackclub.com" target="_blank" rel="noopener noreferrer" variant="ctaLg" sx={{ mt: [4, 5], px: [4, 5], py: [3, 3] }}>
+          <ThemeLink
+            href="https://hackclub.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              mt: [4, 5],
+              px: [4, 5],
+              py: [3, 3],
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              bg: 'red',
+              color: 'white',
+              borderRadius: 'extra',
+              fontWeight: 'bold',
+              fontSize: [2, 3],
+              textDecoration: 'none',
+              cursor: 'pointer',
+              transition: 'transform 0.125s ease-in-out, box-shadow 0.125s ease-in-out',
+              '&:hover': {
+                transform: 'scale(1.0625)',
+                boxShadow: 'elevated'
+              }
+            }}
+          >
             Learn About Hack Club
-          </Button>
+          </ThemeLink>
         </Container>
       </Box>
     </ThemeUIProvider>

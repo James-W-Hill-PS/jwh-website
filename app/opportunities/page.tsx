@@ -17,7 +17,7 @@ import opportunitiesData from '../../data/opportunities.json'
 
 export default function Opportunities() {
   return (
-    <ThemeUIProvider theme={theme}>
+    <ThemeUIProvider theme={theme as any}>
       <Box sx={{ bg: 'background', minHeight: '100vh' }}>
         <Navigation />
 

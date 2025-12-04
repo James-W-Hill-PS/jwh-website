@@ -10,7 +10,8 @@ import {
   Grid,
   Badge,
   Button,
-  Flex
+  Flex,
+  Link as ThemeLink
 } from 'theme-ui'
 import theme from '@hackclub/theme'
 import Navigation from '../components/Navigation'
@@ -33,7 +34,7 @@ export default function Projects() {
   }
 
   return (
-    <ThemeUIProvider theme={theme}>
+    <ThemeUIProvider theme={theme as any}>
       <Box sx={{ bg: 'background', minHeight: '100vh' }}>
         <Navigation />
 
@@ -166,28 +167,66 @@ export default function Projects() {
                 {(project.link || project.github) && (
                   <Flex sx={{ gap: 2, mt: 'auto', flexWrap: 'wrap' }}>
                     {project.link && (
-                      <Button
-                        as="a"
+                      <ThemeLink
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        variant="outline"
-                        sx={{ fontSize: [1, 2], flex: 1 }}
+                        sx={{
+                          fontSize: [1, 2],
+                          flex: 1,
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          px: 3,
+                          py: 2,
+                          bg: 'transparent',
+                          color: 'primary',
+                          border: '2px solid',
+                          borderColor: 'primary',
+                          borderRadius: 'default',
+                          fontWeight: 'bold',
+                          textDecoration: 'none',
+                          cursor: 'pointer',
+                          transition: 'all 0.2s',
+                          '&:hover': {
+                            bg: 'primary',
+                            color: 'background'
+                          }
+                        }}
                       >
                         View Project →
-                      </Button>
+                      </ThemeLink>
                     )}
                     {project.github && (
-                      <Button
-                        as="a"
+                      <ThemeLink
                         href={`https://github.com/${project.github}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        variant="outline"
-                        sx={{ fontSize: [1, 2], flex: project.link ? 0 : 1 }}
+                        sx={{
+                          fontSize: [1, 2],
+                          flex: 1,
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          px: 3,
+                          py: 2,
+                          bg: 'transparent',
+                          color: 'primary',
+                          border: '2px solid',
+                          borderColor: 'primary',
+                          borderRadius: 'default',
+                          fontWeight: 'bold',
+                          textDecoration: 'none',
+                          cursor: 'pointer',
+                          transition: 'all 0.2s',
+                          '&:hover': {
+                            bg: 'primary',
+                            color: 'background'
+                          }
+                        }}
                       >
                         GitHub →
-                      </Button>
+                      </ThemeLink>
                     )}
                   </Flex>
                 )}
