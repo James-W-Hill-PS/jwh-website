@@ -5,7 +5,7 @@ import theme from '@hackclub/theme'
 
 export default function ThemeExample() {
   return (
-    <ThemeUIProvider theme={theme}>
+    <ThemeUIProvider theme={theme as any}>
       <Box sx={{ bg: 'background', minHeight: '100vh' }}>
         {/* Header */}
         <Box as="header" sx={{ bg: 'sheet', py: 4 }}>

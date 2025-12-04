@@ -10,7 +10,7 @@ import {
   Grid,
   Badge,
   Flex,
-  Button
+  Link as ThemeLink
 } from 'theme-ui'
 import theme from '@hackclub/theme'
 import Navigation from '../components/Navigation'
@@ -18,7 +18,7 @@ import staffData from '../../data/staff.json'
 
 export default function Staff() {
   return (
-    <ThemeUIProvider theme={theme}>
+    <ThemeUIProvider theme={theme as any}>
       <Box sx={{ bg: 'background', minHeight: '100vh' }}>
         <Navigation />
 
@@ -128,18 +128,37 @@ export default function Staff() {
                 {(member.github || member.link) && (
                   <Flex sx={{ gap: 2, mt: 'auto', flexWrap: 'wrap' }}>
                     {member.github && (
-                      <Button
-                        as="a"
+                      <ThemeLink
                         href={
                           member.link || `https://github.com/${member.github}`
                         }
                         target="_blank"
                         rel="noopener noreferrer"
-                        variant="outline"
-                        sx={{ fontSize: [0, 1], flex: 1 }}
+                        sx={{
+                          fontSize: [0, 1],
+                          flex: 1,
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          px: 3,
+                          py: 2,
+                          bg: 'transparent',
+                          color: 'primary',
+                          border: '2px solid',
+                          borderColor: 'primary',
+                          borderRadius: 'default',
+                          fontWeight: 'bold',
+                          textDecoration: 'none',
+                          cursor: 'pointer',
+                          transition: 'all 0.2s',
+                          '&:hover': {
+                            bg: 'primary',
+                            color: 'background'
+                          }
+                        }}
                       >
                         GitHub →
-                      </Button>
+                      </ThemeLink>
                     )}
                   </Flex>
                 )}
