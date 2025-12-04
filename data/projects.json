@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Club Website",
+    "status": "Active",
+    "color": "green",
+    "icon": "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nextdotjs.svg",
+    "description": "The website you're on right now! Built with Next.js and Hack Club's theme.",
+    "tech": ["Next.js", "React", "Theme UI"],
+    "link": "https://jwh.hshack.club",
+    "github": "github/jwh-website"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Dwait Pandhi",
+    "role": "Leadership",
+    "color": "red",
+    "icon": "https://ca.slack-edge.com/E09V59WQY1E-U0847KFMUSC-b6c5e431ba64-512",
+    "description": "Leads club meetings and coordinates with Hack Club HQ.",
+    "responsibilities": [
+      "Run meetings",
+      "Plan events",
+      "Manage club",
+      "Organize workshops",
+      "Member outreach",
+      "Manage projects",
+      "Form teams",
+      "Track progress",
+      "Budget",
+      "Hack Club Bank",
+      "Fundraising",
+      "Pretty much everything."
+
+    ],
+    "github": "gamerwaves",
+    "link": "https://github.com/gamerwaves"
+  }
+]
