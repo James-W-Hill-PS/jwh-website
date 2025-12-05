@@ -1,7 +1,6 @@
 'use client'
 
 import {
-  ThemeUIProvider,
   Box,
   Container,
   Heading,
@@ -13,7 +12,7 @@ import {
   Flex,
   Link as ThemeLink
 } from 'theme-ui'
-import theme from '@hackclub/theme'
+import Icon from '@hackclub/icons'
 import Navigation from '../components/Navigation'
 import projectsData from '../../data/projects.json'
 
@@ -34,9 +33,8 @@ export default function Projects() {
   }
 
   return (
-    <ThemeUIProvider theme={theme as any}>
-      <Box sx={{ bg: 'background', minHeight: '100vh' }}>
-        <Navigation />
+    <Box sx={{ bg: 'background', minHeight: '100vh' }}>
+      <Navigation />
 
         <Box sx={{ bg: 'sheet', py: [5, 6] }}>
           <Container sx={{ textAlign: 'center', maxWidth: 'copy' }}>
@@ -177,6 +175,7 @@ export default function Projects() {
                           display: 'inline-flex',
                           alignItems: 'center',
                           justifyContent: 'center',
+                          gap: 1,
                           px: 3,
                           py: 2,
                           bg: 'transparent',
@@ -188,13 +187,14 @@ export default function Projects() {
                           textDecoration: 'none',
                           cursor: 'pointer',
                           transition: 'all 0.2s',
+                          whiteSpace: 'nowrap',
                           '&:hover': {
                             bg: 'primary',
                             color: 'background'
                           }
                         }}
                       >
-                        View Project →
+                        View Project <Icon glyph="enter" size={24} />
                       </ThemeLink>
                     )}
                     {project.github && (
@@ -208,6 +208,7 @@ export default function Projects() {
                           display: 'inline-flex',
                           alignItems: 'center',
                           justifyContent: 'center',
+                          gap: 1,
                           px: 3,
                           py: 2,
                           bg: 'transparent',
@@ -219,13 +220,14 @@ export default function Projects() {
                           textDecoration: 'none',
                           cursor: 'pointer',
                           transition: 'all 0.2s',
+                          whiteSpace: 'nowrap',
                           '&:hover': {
                             bg: 'primary',
                             color: 'background'
                           }
                         }}
                       >
-                        GitHub →
+                        GitHub <Icon glyph="enter" size={24} />
                       </ThemeLink>
                     )}
                   </Flex>
@@ -264,6 +266,5 @@ export default function Projects() {
           </Container>
         </Box>
       </Box>
-    </ThemeUIProvider>
   )
 }

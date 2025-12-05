@@ -1,8 +1,8 @@
 'use client'
 
-import { ThemeUIProvider, Box, Container, Heading, Text, Card, Grid, Badge, Link as ThemeLink } from 'theme-ui'
-import theme from '@hackclub/theme'
+import { Box, Container, Heading, Text, Card, Grid, Badge, Link as ThemeLink } from 'theme-ui'
 import Navigation from '../components/Navigation'
+import Icon from '@hackclub/icons'
 
 export default function Resources() {
   const resources = [
@@ -69,9 +69,8 @@ export default function Resources() {
   ]
 
   return (
-    <ThemeUIProvider theme={theme as any}>
-      <Box sx={{ bg: 'background', minHeight: '100vh' }}>
-        <Navigation />
+    <Box sx={{ bg: 'background', minHeight: '100vh' }}>
+      <Navigation />
         
         <Box sx={{ bg: 'sheet', py: [5, 6] }}>
           <Container sx={{ textAlign: 'center', maxWidth: 'copy' }}>
@@ -131,13 +130,16 @@ export default function Resources() {
                           color: 'primary',
                           lineHeight: 'heading',
                           transition: 'color 0.2s ease',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: 1,
                           '&:hover': {
                             color: 'red',
                             textDecoration: 'underline'
                           }
                         }}
                       >
-                        {item.name} →
+                        {item.name} <Icon glyph="enter" size={24} />
                       </ThemeLink>
                       <Text sx={{ fontSize: [1, 1], color: 'muted', mt: 1, lineHeight: 'body' }}>
                         {item.description}
@@ -167,6 +169,5 @@ export default function Resources() {
           </Container>
         </Box>
       </Box>
-    </ThemeUIProvider>
   )
 }

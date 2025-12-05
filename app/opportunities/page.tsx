@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import {
-  ThemeUIProvider,
   Box,
   Container,
   Heading,
@@ -13,10 +12,9 @@ import {
   Link as ThemeLink,
   Spinner
 } from 'theme-ui'
-import theme from '@hackclub/theme'
+import Icon from '@hackclub/icons'
 import Navigation from '../components/Navigation'
 import yaml from 'js-yaml'
-import type { Theme } from 'theme-ui'
 
 interface YSWSLink {
   name: string
@@ -92,9 +90,8 @@ export default function Opportunities() {
   const upcoming = opportunities.filter(o => o.status === 'upcoming')
 
   return (
-    <ThemeUIProvider theme={theme as Theme}>
-      <Box sx={{ bg: 'background', minHeight: '100vh' }}>
-        <Navigation />
+    <Box sx={{ bg: 'background', minHeight: '100vh' }}>
+      <Navigation />
 
         <Box sx={{ bg: 'sheet', py: [5, 6] }}>
           <Container sx={{ textAlign: 'center', maxWidth: 'copy' }}>
@@ -131,7 +128,7 @@ export default function Opportunities() {
                         <Text sx={{ mb: 4, fontSize: [1, 2], color: 'secondary', flex: 1 }}>{opp.description}</Text>
                         <Box sx={{ mt: 'auto' }}>
                           <Grid columns={1} gap={2}>
-                            <ThemeLink href={opp.website} target="_blank" rel="noopener noreferrer" sx={{ fontSize: [1, 2], fontWeight: 'bold', color: 'primary' }}>→ Visit Website</ThemeLink>
+                            <ThemeLink href={opp.website} target="_blank" rel="noopener noreferrer" sx={{ fontSize: [1, 2], fontWeight: 'bold', color: 'primary', display: 'inline-flex', alignItems: 'center', gap: 1 }}><Icon glyph="enter" size={24} /> Visit Website</ThemeLink>
                             {opp.slack && <ThemeLink href={opp.slack} target="_blank" rel="noopener noreferrer" sx={{ fontSize: [0, 1], color: 'muted' }}>💬 {opp.slackChannel || 'Join Slack'}</ThemeLink>}
                           </Grid>
                         </Box>
@@ -156,7 +153,7 @@ export default function Opportunities() {
                         <Text sx={{ mb: 4, fontSize: [1, 2], color: 'secondary', flex: 1 }}>{opp.description}</Text>
                         <Box sx={{ mt: 'auto' }}>
                           <Grid columns={1} gap={2}>
-                            <ThemeLink href={opp.website} target="_blank" rel="noopener noreferrer" sx={{ fontSize: [1, 2], fontWeight: 'bold', color: 'primary' }}>→ Visit Website</ThemeLink>
+                            <ThemeLink href={opp.website} target="_blank" rel="noopener noreferrer" sx={{ fontSize: [1, 2], fontWeight: 'bold', color: 'primary', display: 'inline-flex', alignItems: 'center', gap: 1 }}><Icon glyph="enter" size={24} /> Visit Website</ThemeLink>
                             {opp.slack && <ThemeLink href={opp.slack} target="_blank" rel="noopener noreferrer" sx={{ fontSize: [0, 1], color: 'muted' }}>💬 {opp.slackChannel || 'Join Slack'}</ThemeLink>}
                           </Grid>
                         </Box>
@@ -180,7 +177,7 @@ export default function Opportunities() {
                         <Heading as="h3" sx={{ fontSize: [3, 4], mb: 3 }}>{opp.name}</Heading>
                         <Text sx={{ mb: 4, fontSize: [1, 2], color: 'secondary', flex: 1 }}>{opp.description}</Text>
                         <Box sx={{ mt: 'auto' }}>
-                          <ThemeLink href={opp.website} target="_blank" rel="noopener noreferrer" sx={{ fontSize: [1, 2], fontWeight: 'bold', color: 'primary' }}>→ Visit Website</ThemeLink>
+                          <ThemeLink href={opp.website} target="_blank" rel="noopener noreferrer" sx={{ fontSize: [1, 2], fontWeight: 'bold', color: 'primary', whiteSpace: 'nowrap' }}><Icon glyph="enter" size={24} /> Visit Website</ThemeLink>
                         </Box>
                       </Card>
                     ))}
@@ -200,7 +197,7 @@ export default function Opportunities() {
                         <Heading as="h3" sx={{ fontSize: [3, 4], mb: 3 }}>{opp.name}</Heading>
                         <Text sx={{ mb: 4, fontSize: [1, 2], color: 'secondary', flex: 1 }}>{opp.description}</Text>
                         <Box sx={{ mt: 'auto' }}>
-                          <ThemeLink href={opp.website} target="_blank" rel="noopener noreferrer" sx={{ fontSize: [1, 2], fontWeight: 'bold', color: 'muted' }}>→ View Archive</ThemeLink>
+                          <ThemeLink href={opp.website} target="_blank" rel="noopener noreferrer" sx={{ fontSize: [1, 2], fontWeight: 'bold', color: 'muted', display: 'inline-flex', alignItems: 'center', gap: 1 }}><Icon glyph="enter" size={24} /> View Archive</ThemeLink>
                         </Box>
                       </Card>
                     ))}
@@ -225,6 +222,5 @@ export default function Opportunities() {
           </Container>
         </Box>
       </Box>
-    </ThemeUIProvider>
   )
 }

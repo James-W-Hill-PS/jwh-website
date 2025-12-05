@@ -1,16 +1,14 @@
 'use client'
 
-import { ThemeUIProvider, Box, Container, Heading, Text, Button, Card, Grid, Badge, Flex, Link as ThemeLink } from 'theme-ui'
-import theme from '@hackclub/theme'
+import { Box, Container, Heading, Text, Button, Card, Grid, Badge, Flex, Link as ThemeLink } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import Link from 'next/link'
 import Navigation from './components/Navigation'
 
 export default function Home() {
   return (
-    <ThemeUIProvider theme={theme as any}>
-      <Box sx={{ bg: 'background', minHeight: '100vh' }}>
-        <Navigation />
+    <Box sx={{ bg: 'background', minHeight: '100vh' }}>
+      <Navigation />
 
         <Box as="header" sx={{ bg: 'sheet', py: [5, 6] }}>
           <Container sx={{ textAlign: 'center', maxWidth: 'copy' }}>
@@ -28,12 +26,16 @@ export default function Home() {
               </a>
             </Text>
             <Flex sx={{ gap: [2, 3], justifyContent: 'center', mt: [4, 5], flexWrap: 'wrap' }}>
-              <Link href="/opportunities" passHref legacyBehavior>
+              <Link href="/opportunities">
+                {/* @next-codemod-error This Link previously used the now removed `legacyBehavior` prop, and has a child that might not be an anchor. The codemod bailed out of lifting the child props to the Link. Check that the child component does not render an anchor, and potentially move the props manually to Link. */
+                }
                 <Button as="a" variant="lg" sx={{ px: [3, 4], py: [2, 3] }}>
                   View Opportunities
                 </Button>
               </Link>
-              <Link href="/projects" passHref legacyBehavior>
+              <Link href="/projects">
+                {/* @next-codemod-error This Link previously used the now removed `legacyBehavior` prop, and has a child that might not be an anchor. The codemod bailed out of lifting the child props to the Link. Check that the child component does not render an anchor, and potentially move the props manually to Link. */
+                }
                 <Button as="a" variant="outlineLg" sx={{ px: [3, 4], py: [2, 3] }}>
                   Our Projects
                 </Button>
@@ -56,7 +58,7 @@ export default function Home() {
               </Text>
             </Card>
             <Box sx={{ flexShrink: 0, px: 2 }}>
-              <Icon glyph="enter" size={16} />
+              <Icon glyph="enter" size={24} />
             </Box>
             <Card variant="interactive" sx={{ p: [4, 5], flex: 1, minWidth: 0 }}>
               <Badge variant="pill" sx={{ bg: 'blue', mb: 3, fontSize: [0, 1] }}>Create</Badge>
@@ -66,7 +68,7 @@ export default function Home() {
               </Text>
             </Card>
             <Box sx={{ flexShrink: 0, px: 2 }}>
-              <Icon glyph="enter" size={16} />
+              <Icon glyph="enter" size={24} />
             </Box>
             <Card variant="interactive" sx={{ p: [4, 5], flex: 1, minWidth: 0 }}>
               <Badge variant="pill" sx={{ bg: 'green', mb: 3, fontSize: [0, 1] }}>Enjoy</Badge>
@@ -84,12 +86,10 @@ export default function Home() {
               Quick Links
             </Heading>
             <Grid columns={[1, 2]} gap={[3, 4]} sx={{ maxWidth: '900px', mx: 'auto' }}>
-              <Link href="/staff" passHref legacyBehavior>
-                <Card as="a" variant="interactive" sx={{ textDecoration: 'none', p: [4, 5], height: '100%' }}>
-                  <Heading as="h3" sx={{ fontSize: [3, 4], mb: 3 }}>
-                    <Box as="span" sx={{ display: 'inline-block', verticalAlign: 'middle', mr: 2 }}>
-                      <Icon glyph="person" size={20} />
-                    </Box>
+              <Link href="/staff" style={{ textDecoration: 'none' }}>
+                <Card variant="interactive" sx={{ p: [4, 5], height: '100%' }}>
+                  <Heading as="h3" sx={{ fontSize: [3, 4], mb: 3, display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <Icon glyph="person" size={20} />
                     Meet the Staff
                   </Heading>
                   <Text sx={{ fontSize: [1, 2], color: 'secondary' }}>
@@ -98,12 +98,10 @@ export default function Home() {
                 </Card>
               </Link>
 
-              <Link href="/resources" passHref legacyBehavior>
-                <Card as="a" variant="interactive" sx={{ textDecoration: 'none', p: [4, 5], height: '100%' }}>
-                  <Heading as="h3" sx={{ fontSize: [3, 4], mb: 3 }}>
-                    <Box as="span" sx={{ display: 'inline-block', verticalAlign: 'middle', mr: 2 }}>
-                      <Icon glyph="docs" size={20} />
-                    </Box>
+              <Link href="/resources" style={{ textDecoration: 'none' }}>
+                <Card variant="interactive" sx={{ p: [4, 5], height: '100%' }}>
+                  <Heading as="h3" sx={{ fontSize: [3, 4], mb: 3, display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <Icon glyph="docs" size={20} />
                     Resources
                   </Heading>
                   <Text sx={{ fontSize: [1, 2], color: 'secondary' }}>
@@ -153,6 +151,5 @@ export default function Home() {
           </ThemeLink>
         </Container>
       </Box>
-    </ThemeUIProvider>
   )
 }
